@@ -39,13 +39,14 @@ one sig BestCollab extends Category {}
 
 //--- FATOS E PREDICADOS ---
 
-// Uma canção pode aparecer em no máximo 2 álbuns
-fact SongAtMostTwoAlbums {
-    all s: Song | #(s.~tracks) <= 2
+// Apenas 4 categorias principais existem no Grammy. Isso garante que a assinatura abstrata Category
+// é composta exclusivamente por estas quatro subclasses.
+fact OnlyFourCategories {
+    Category = BestArtistOrBand + BestAlbum + BestSong + BestCollab
 }
 
 // A ideia inicial da interpretação do enunciado do problema.
-fact CategoryNominations {
+fact CategoryNominations {git 
     BestArtistOrBand.nominees in Artist
     BestAlbum.nominees in Album
     BestSong.nominees in Song
@@ -55,6 +56,11 @@ fact CategoryNominations {
 // Toda categoria deve ter entre 4 e 8 indicados (inclusive).
 fact CategorySizes {
     all c: Category | #c.nominees >= 4 && #c.nominees <= 8
+}
+
+// Uma canção pode aparecer em no máximo 2 álbuns
+fact SongAtMostTwoAlbums {
+    all s: Song | #(s.~tracks) <= 2
 }
 
 //Todos os nomeados a Best Artist são autores de Best Album.
