@@ -46,7 +46,7 @@ fact OnlyFourCategories {
 }
 
 // A ideia inicial da interpretação do enunciado do problema.
-fact CategoryNominations {git 
+fact CategoryNominations {
     BestArtistOrBand.nominees in Artist
     BestAlbum.nominees in Album
     BestSong.nominees in Song
@@ -91,7 +91,17 @@ fact BestSongsAreInBestAlbums {
 // Todos os artistas indicados em Best Artist são os autores de pelo menos um álbum indicado como melhor álbum.
 assert ArtistsHaveAlbumNomination {
     all a: BestArtistOrBand.nominees | some al: BestAlbum.nominees | al.owner = a
-}   
+}
+
+// Nenhuma música está em mais de 2 álbuns
+assert SongNotInMoreThanTwoAlbums {
+    all s: Song | #(s.~tracks) <= 2
+}
+
+// Apenas 4 categorias principais existem
+assert OnlyFourCategoriesAssert {
+    Category = BestArtistOrBand + BestAlbum + BestSong + BestCollab
+}
 
 // Todas as canções indicadas como melhor colaboração possuem mais de um artista como seus criadores
 assert CollabsAreRealCollaborations {
@@ -127,3 +137,9 @@ check ArtistNomineesAreLessOrTheSameNumberOfAlbums for 12 but 5 Int
 
 // Verifica a regra de Best Songs.
 check AtLeastHalfOfBestSongsAreInSomeAlbumNominatedToBestAlbum for 12 but 5 Int
+
+// Verifica que nenhuma música está em mais de 2 álbuns
+check SongNotInMoreThanTwoAlbums for 12 but 5 Int
+
+// Verifica que só existem 4 categorias principais
+check OnlyFourCategoriesAssert for 12 but 5 Int
