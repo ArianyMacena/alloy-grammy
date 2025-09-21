@@ -39,9 +39,9 @@ one sig BestCollab extends Category {}
 
 //--- FATOS E PREDICADOS ---
 
-// Nenhuma canção está em mais de um álbum.
-fact NoSongInMultipleAlbums {
-    all s: Song | lone s.~tracks
+// Uma canção pode aparecer em no máximo 2 álbuns
+fact SongAtMostTwoAlbums {
+    all s: Song | #(s.~tracks) <= 2
 }
 
 // A ideia inicial da interpretação do enunciado do problema.
