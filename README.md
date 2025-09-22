@@ -42,6 +42,6 @@ Este projeto modela, utilizando Alloy, o sistema de premiação do Grammy Awards
 
 # 📘 Componente Curricular
 
-Disciplina: Lógica para Computação
-Período: 2025.1
-Professor: Salatiel Dantas
+- Disciplina: Lógica para Computação
+- Período: 2025.1
+- Professor: Salatiel Dantas
