@@ -1,6 +1,6 @@
 //GRAMMY AWARDS - Lógica - 2025.1
 // Autoras:
-// Ariany da Silva Macena
+// Ariany da Silva de Macena
 // Ana Paula Soares Cassimiro
 // Fabiana Simplício da Silva
 // Viviane Alves da Silva
@@ -101,6 +101,7 @@ fact BestSongsAreInBestAlbums {
     atLeastHalfBestSongsInBestAlbums[]
 }
 
+
 // ---- ASSERTS ----
 
 // Verifica se todos os artistas indicados em Best Artist
@@ -144,6 +145,20 @@ assert CategoryNomineesAreCorrect {
     BestSong.nominees in Song
     BestCollab.nominees in Song
 }
+
+//--- CENÁRIO EXEMPLO ---
+pred cenarioExemplo {
+    #Artist = 6
+    #Song = 12
+    #Album = 6
+    
+    #BestArtistOrBand.nominees = 4 
+    #BestAlbum.nominees = 4 
+    #BestSong.nominees = 4
+    #BestCollab.nominees = 4
+}
+run cenarioExemplo for 12 but 5 Int
+
 
 //--- RUNS E CHECAGENS DE ASSERTS ---
 

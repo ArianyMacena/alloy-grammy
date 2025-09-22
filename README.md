@@ -34,7 +34,7 @@ Este projeto modela, utilizando Alloy, o sistema de premiação do Grammy Awards
 
 ## 👥 Integrantes do Grupo
 
-- Ariany da Silva Macena;
+- Ariany da Silva de Macena;
 - Ana Paula Soares Cassimiro;
 - Fabiana Simplício da Silva;
 - Viviane Alves da Silva;
